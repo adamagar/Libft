@@ -6,11 +6,13 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:44 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/10 13:22:48 by aagar            ###   ########.fr       */
+/*   Updated: 2024/02/10 13:29:17 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-	return ((c > 64 && c < 91) || (c > 96 && c < 123));
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
