@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/08 16:48:07 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/17 15:36:17 by aagar            ###   ########.fr       */
+/*   Created: 2024/02/17 15:03:07 by aagar             #+#    #+#             */
+/*   Updated: 2024/02/17 15:35:36 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	unsigned char	*d;
+	unsigned char	*s;
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-void	ft_memset(void *b, int c, size_t len);
-size_t	ft_strlen(const char *s);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-#endif
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	while (n > 0)
+	{
+		*d = *s;
+		n--;
+		d++;
+		s++;
+	}
+	return (dst);
+}
