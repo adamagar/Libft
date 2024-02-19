@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:48:07 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/19 13:35:28 by aagar            ###   ########.fr       */
+/*   Updated: 2024/02/19 13:47:56 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
 void	*ft_memchr(const void *s, int c, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 #endif
