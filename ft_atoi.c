@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:43:31 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/24 13:01:39 by aagar            ###   ########.fr       */
+/*   Updated: 2024/02/24 13:29:24 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ int	ft_atoi(const char *str)
 
 	result = 0;
 	sign = 0;
-
 	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
 	{
 		str++;
 	}
-
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
@@ -33,7 +31,6 @@ int	ft_atoi(const char *str)
 		}
 		str++;
 	}
-
 	while (*str >= '0' && *str <= '9')
 	{
 		result = (result * 10) + (*str - '0');
