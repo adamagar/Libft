@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:48:07 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/24 15:26:39 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/07 12:20:25 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_itoa(int n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 #endif
