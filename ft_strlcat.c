@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 14:37:18 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/18 16:24:27 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 13:59:06 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst_len = ft_strlen(dst);
 	total_len = dst_len + src_len;
 	i = 0;
-	if (dst_len < dst_size - 1)
+	if (dst_len < dstsize - 1)
 	{
-		while (src[i] != '\0' && dst_len + i < dst_size - 1)
+		while (src[i] != '\0' && dst_len + i < dstsize - 1)
 		{
 			dst[dst_len + i] = src[i];
 			i++;

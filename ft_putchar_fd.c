@@ -6,13 +6,13 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 14:55:57 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/22 14:58:10 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 14:02:27 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }

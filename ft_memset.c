@@ -6,13 +6,13 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 13:19:40 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/15 15:51:32 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 13:59:46 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*p;
 
