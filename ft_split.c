@@ -6,75 +6,101 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:16:51 by aagar             #+#    #+#             */
-/*   Updated: 2024/03/07 13:33:30 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 14:44:49 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(char const *s, char c)
+static int	char_is_delimeter(char c, char sep)
+{
+	if (c == sep)
+		return (1);
+	else
+		return (0);
+}
+
+static int	segment_count_segments(const char *str, char c)
+{
+	int	word_started;
+	int	segment_count;
+
+	word_started = 0;
+	segment_count = 0;
+	while (*str)
+	{
+		if (*str != c && word_started == 0)
+		{
+			word_started = 1;
+			segment_count++;
+		}
+		else if (*str == c)
+			word_started = 0;
+		str++;
+	}
+	return (segment_count);
+}
+
+static int	cleanup_on_fail(char **arr, int k)
 {
 	int	i;
-	int	count;
 
 	i = 0;
-	count = 0;
-	while (s[i] != '\0')
+	if (arr[k - 1] == NULL)
 	{
-		if (s[i] != c)
+		while (k > 0)
 		{
-			count++;
-			while (s[i] != c && s[i] != '\0')
-				i++;
+			free(arr[k - 1]);
+			k--;
 		}
-		else
-			i++;
+		return (1);
 	}
-	return (count);
+	return (0);
 }
 
-static char	*ft_strndup(const char *s, size_t n)
+static int	populate_array(char **array, char const *s, char c)
 {
-	char	*str;
-	size_t	i;
-
-	i = 0;
-	str = (char *)malloc(sizeof(char) * (n + 1));
-	if (!str)
-		return (NULL);
-	while (i < n)
-	{
-		str[i] = s[i];
-		i++;
-	}
-	str[i] = '\0';
-	return (str);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**str;
 	int		i;
 	int		j;
 	int		k;
 
 	i = 0;
-	j = 0;
-	str = (char **)malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (!s || !str)
-		return (NULL);
-	while (s[i] != '\0')
+	k = 0;
+	while (s[i])
 	{
-		if (s[i] != c)
-		{
-			k = i;
-			while (s[i] != c && s[i] != '\0')
-				i++;
-			str[j++] = ft_strndup(&s[k], i - k);
-		}
-		else
+		j = 0;
+		if (char_is_delimeter(s[i], c))
 			i++;
+		else
+		{
+			while (s[i + j] && !char_is_delimeter(s[i + j], c))
+				j++;
+			array[k++] = (char *)malloc((j + 1) * sizeof(char));
+			if (cleanup_on_fail(array, k) == 1)
+				return (1);
+			ft_strlcpy(array[k - 1], s + i, j + 1);
+		}
+		i = i + j;
 	}
-	str[j] = NULL;
-	return (str);
+	return (0);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**split_strings;
+	int		word_segment_count;
+
+	if (!s)
+		return (NULL);
+	word_segment_count = segment_count_segments(s, c);
+	split_strings = (char **)malloc((word_segment_count + 1) * sizeof(char *));
+	if (!split_strings)
+		return (NULL);
+	if (populate_array(split_strings, s, c))
+	{
+		free(split_strings);
+		return (NULL);
+	}
+	split_strings[word_segment_count] = NULL;
+	return (split_strings);
 }

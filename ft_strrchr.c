@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:08:54 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/18 17:27:15 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 14:28:31 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	unsigned int	i;
+	char			*last_occurence;
 
-	i = ft_strlen(s);
-	if (c == 0)
+	last_occurence = NULL;
+	i = 0;
+	while (s[i])
 	{
-		return ((char *)s + i);
+		if (s[i] == (char)c)
+			last_occurence = (char *)&s[i];
+		i++;
 	}
-	while (i >= 0)
-	{
-		if (s[i] == c)
-		{
-			return ((char *)s + i);
-		}
-		i--;
-	}
-	return (NULL);
+	if ((char)c == s[i])
+		return ((char *)&s[i]);
+	return (last_occurence);
 }

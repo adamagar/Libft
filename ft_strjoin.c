@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:12:44 by aagar             #+#    #+#             */
-/*   Updated: 2024/03/07 12:20:09 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 14:27:29 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*s3;
-	size_t	i;
-	size_t	j;
+	int		i;
+	int		j;
+	char	*str;
 
-	if (!s1 || !s2)
-		return (NULL);
-	s3 = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!s3)
-		return (NULL);
 	i = 0;
+	j = 0;
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
 	while (s1[i] != '\0')
 	{
-		s3[i] = s1[i];
+		str[i] = s1[i];
 		i++;
 	}
-	j = 0;
-	while (s2[i] != '\0')
+	while (s2[j] != '\0')
 	{
-		s3[i + j] = s2[j];
+		str[i + j] = s2[j];
 		j++;
 	}
-	s3[i + j] = '\0';
-	return (s3);
+	str[i + j] = '\0';
+	return (str);
 }

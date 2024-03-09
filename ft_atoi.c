@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:43:31 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/24 13:29:24 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/09 14:26:06 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,26 @@
 
 int	ft_atoi(const char *str)
 {
-	int	result;
-	int	sign;
+	long	i;
+	long	nbr;
+	int		isneg;
 
-	result = 0;
-	sign = 0;
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
+	i = 0;
+	nbr = 0;
+	isneg = 0;
+	while (str[i] != '\0' && (str[i] == 32 || str[i] == '\t' || str[i] == '\n'
+			|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f'))
+		i++;
+	if (str[i] != '\0' && str[i] == '-')
 	{
-		str++;
+		isneg = 1;
+		i++;
 	}
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-		{
-			sign = -1;
-		}
-		str++;
-	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = (result * 10) + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0' && ft_isdigit(str[i]))
+		nbr = (nbr * 10) + (str[i++] - '0');
+	if (isneg == 1)
+		return (-nbr);
+	return (nbr);
 }
