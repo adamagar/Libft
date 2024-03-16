@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:39:08 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/22 15:43:11 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/16 13:15:36 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
+	if (!s)
+		return ;
 	write (fd, s, ft_strlen(s));
 	write (fd, "\n", 1);
 }
