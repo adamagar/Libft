@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 15:03:07 by aagar             #+#    #+#             */
-/*   Updated: 2024/03/16 13:12:36 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/19 11:49:24 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	size_t	i;
 
 	if (!dst && !src)
-		return (NULL);
-	d = dst;
-	s = src;
-	while (n-- > 0)
-		*d++ = *s++;
+		return (0);
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
 	return (dst);
 }

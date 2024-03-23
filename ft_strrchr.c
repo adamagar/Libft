@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:08:54 by aagar             #+#    #+#             */
-/*   Updated: 2024/03/09 14:28:31 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/19 12:29:26 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	last_occurence = NULL;
 	i = 0;
-	while (s[i])
+	while (s[i] && s)
 	{
 		if (s[i] == (char)c)
 			last_occurence = (char *)&s[i];

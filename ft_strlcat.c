@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 14:37:18 by aagar             #+#    #+#             */
-/*   Updated: 2024/03/09 14:25:26 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/19 08:41:19 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	src_len;
 	size_t	dst_len;
 
+	if (!dst && !src)
+		return (0);
 	j = 0;
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);

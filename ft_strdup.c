@@ -6,7 +6,7 @@
 /*   By: aagar <aagar@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 10:49:21 by aagar             #+#    #+#             */
-/*   Updated: 2024/02/19 11:13:40 by aagar            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:23:25 by aagar            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 
 char	*ft_strdup(const char *s1)
 {
+	char	*s2;
 	size_t	len;
-	char	*dup;
-	size_t	i;
 
 	len = ft_strlen(s1) + 1;
-	dup = malloc(len);
-	i = 0;
-	if (dup == NULL)
-	{
+	s2 = (char *)malloc(len);
+	if (!s2)
 		return (NULL);
-	}
-	while (i < len)
-	{
-		dup[i] = s1[i];
-		i++;
-	}
-	return (dup);
+	ft_memcpy(s2, s1, len);
+	return (s2);
 }
